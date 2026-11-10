@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Timemate - 집중 관리</title>
+
+    <link rel="stylesheet" href="focus.css">
+
+</head>
+
+<body>
+<!--  전체页面  -->
+
+<div class="focus-page">
+<!--   左侧菜单 -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Timemate
+        </div>
+
+        <nav class="sidebar-menu">
+    <!-- 대시보드 -->
+    <a href="index.html"
+    class="menu-item">
+        <span class="menu-icon">⌂</span>
+        <span>대시보드</span>
+    </a>
+
+    <!-- 일정 관리 -->
+    <a href="index.html"
+    class="menu-item">
+        <span class="menu-icon">▣</span>
+        <span>일정 관리</span>
+    </a>
+
+    <!-- 집중 관리 -->
+    <a href="focus.html"
+    class="menu-item active">
+        <span class="menu-icon">✓</span>
+        <span>집중 관리</span>
+    </a>
+
+    <!-- 통계 -->
+    <a href="statistics.html"
+    class="menu-item">
+        <span class="menu-icon">◷</span>
+        <span>통계</span>
+    </a>
+</nav>
+        <div class="sidebar-bottom">
+            <button id="logoutButton">
+                로그아웃
+            </button>
+        </div>
+    </aside>
+<!-- 主体内容 -->
+
+    <main class="main-content">
+        <!-- 页面标题 -->
+
+        <header class="page-header">
+
+            <div>
+                <p class="page-label">
+                    집중 관리
+                </p>
+                <h1>
+                    지금 할 일에 집중해보세요
+                </h1>
+            </div>
+        </header>
+
+<!--  计时器 -->
+
+        <section class="timer-card">
+            <div class="timer-top">
+                <span class="timer-label">
+                    FOCUS TIMER
+                </span>
+
+                <span class="timer-status"
+                    id="timerStatus">
+                    대기 중
+                </span>
+            </div>
+
+            <!-- 当前任务 -->
+
+            <div class="current-task">
+                <p>
+                    현재 집중할 일
+                </p>
+
+                <h2 id="currentTask">
+                    할 일을 선택하세요
+                </h2>
+            </div>
+
+            <!-- 大钟 -->
+
+            <div class="timer-display"
+                id="timerDisplay">
+                25:00
+            </div>
+
+            <!-- 计时模式 -->
+            <div class="timer-mode">
+                <button
+                    class="mode-button active"
+                    data-mode="countdown">
+                    집중 시간
+                </button>
+
+                <button
+                    class="mode-button"
+                    data-mode="stopwatch">
+                    정방향
+                </button>
+            </div>
+
+            <!-- 倒计时时间 -->
+
+            <div class="preset-area"
+                id="presetArea">
+                <button
+                    class="preset-button"
+                    data-minutes="15">
+                    15분
+                </button>
+
+                <button
+                    class="preset-button selected"
+                    data-minutes="25">
+                    25분
+                </button>
+
+                <button
+                    class="preset-button"
+                    data-minutes="45">
+                    45분
+                </button>
+
+                <button
+                    class="preset-button"
+                    data-minutes="60">
+                    60분
+                </button>
+            </div>
+
+            <!-- 操作按钮 -->
+
+        <div class="timer-controls">
+    <button id="startButton" class="primary-button">
+        시작
+    </button>
+
+    <button id="pauseButton" class="secondary-button">
+        일시정지
+    </button>
+
+    <button id="resetButton" class="secondary-button">
+        초기화
+    </button>
+
+    <button id="finishButton" class="finish-button">
+        집중 종료
+    </button>
+</div>
+
+<!-- 分心记录 -->
+<div class="distraction-area">
+
+    <p class="distraction-title">
+        오늘의 집중을 방해한 횟수
+    </p>
+
+    <div class="distraction-count">
+        <span id="sessionDistractionCount">0</span>
+        <span>회</span>
+    </div>
+
+    <button id="distractionButton">
+        😵 딴짓 기록하기
+    </button>
+
+</div>
+<!-- 专注结束报告 -->
+<section class="focus-report" id="focusReport">
+
+    <div class="report-header">
+        <p class="section-label">FOCUS REPORT</p>
+        <h2>🎉 오늘의 집중 결과</h2>
+        <p>이번 집중 활동을 정리해 보세요.</p>
+    </div>
+
+    <div class="report-grid">
+
+        <div class="report-item">
+            <span>이번 집중 시간</span>
+            <strong id="reportSessionTime">25분</strong>
+        </div>
+
+        <div class="report-item">
+            <span>이번 집중 딴짓 횟수</span>
+            <strong id="reportSessionDistractions">0회</strong>
+        </div>
+
+        <div class="report-item">
+            <span>오늘 총 집중 시간</span>
+            <strong id="reportTodayFocus">0분</strong>
+        </div>
+
+        <div class="report-item">
+            <span>오늘 총 딴짓 횟수</span>
+            <strong id="reportTodayDistractions">0회</strong>
+        </div>
+
+        <div class="report-item">
+            <span>어제 딴짓 횟수</span>
+            <strong id="reportYesterdayDistractions">0회</strong>
+        </div>
+
+    </div>
+
+    <div class="report-analysis" id="reportAnalysis">
+        오늘의 집중 결과를 확인해 보세요.
+    </div>
+
+</section>
+<!--  To-Do -->
+
+        <section class="todo-section">
+            <div class="section-header">
+                <div>
+                    <p class="section-label">
+                        TODAY
+                    </p>
+                    <h2>
+                        지금 할 일
+                    </h2>
+                </div>
+                <span id="todoCount">
+                    0개
+                </span>
+            </div>
+            <!-- 添加 To-Do -->
+
+            <div class="todo-input-area">
+                <input
+                    type="text"
+                    id="todoInput"
+                    placeholder="지금 해야 할 일을 입력하세요">
+                <button id="addTodoButton">
+                    추가
+                </button>
+            </div>
+            <!-- To-Do 列表 -->
+
+            <div id="todoList"
+                class="todo-list">
+                <!-- JavaScript로 생성 -->
+            </div>
+        </section>
+    </main>
+</div>
+<script src="focus.js"></script>
+</body>
+</html>

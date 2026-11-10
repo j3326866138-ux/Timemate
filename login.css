@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/*  全部页面(전체 페이지) */
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        "Malgun Gothic",
+        sans-serif;
+
+    color: #222;
+}
+
+
+/*  登录全部背景（로그인 전체 배경）*/
+
+.auth-container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239, 96, 120, 0.25),
+            rgba(198, 137, 170, 0.35)
+        );
+}
+/*  登录卡片（로그인 카드） */
+
+.auth-card {
+
+    width: 400px;
+
+    padding: 45px 42px;
+
+    background: #F9F7EA;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.7);
+
+    border-radius: 26px;
+
+
+    box-shadow:
+        0 20px 50px
+        rgba(80, 30, 50, 0.20);
+
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* 鼠标悬停时卡片会稍微抬起（마우스를 올렸을 때 카드가 살짝 올라감） */
+
+.auth-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 25px 55px
+        rgba(80, 30, 50, 0.24);
+}
+
+
+
+/* Timemate 标志（로고） */
+
+.auth-logo {
+
+    text-align: center;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -1px;
+
+    color: #EF6078;
+}
+
+
+
+/*  로그인하세요 */
+
+.login-subtitle {
+
+    margin: 0 0 35px;
+
+    text-align: center;
+
+    color: #C689AA;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+
+/* 标签（라벨） */
+
+.auth-card label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+
+/*  输入框（입력창） */
+
+.auth-card input {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 16px;
+
+    margin-bottom: 19px;
+
+
+    background: #ffffff;
+
+    border: 1.5px solid #ded5d1;
+
+    border-radius: 14px;
+
+
+    font-size: 14px;
+
+    color: #333;
+
+    outline: none;
+
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.auth-card input::placeholder {
+
+    color: #b6aaa8;
+}
+
+
+/* 点击输入框时（입력창을 클릭했을 때） */
+
+.auth-card input:focus {
+
+    border-color: #C689AA;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(198, 137, 170, 0.16);
+
+    transform: translateY(-1px);
+}
+
+
+
+/*  登录按钮（로그인 버튼） */
+
+.auth-card button {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0;
+
+    margin-top: 4px;
+
+
+    border: none;
+
+    border-radius: 15px;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #EF6078,
+            #C689AA
+        );
+
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+
+    cursor: pointer;
+
+
+    box-shadow:
+        0 8px 18px
+        rgba(239, 96, 120, 0.25);
+
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* 鼠标悬停时（마우스를 올렸을 때） */
+
+.auth-card button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px
+        rgba(239, 96, 120, 0.32);
+
+    opacity: 0.95;
+}
+/* 点击时（클릭하는 순간） */
+
+.auth-card button:active {
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 12px
+        rgba(239, 96, 120, 0.20);
+}
+
+
+
+/* 登录错误/成功消息（로그인 오류 / 성공 메시지） */
+
+.auth-message {
+
+    min-height: 20px;
+
+    margin: 15px 0;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+
+/* 注册区域（회원가입 영역） */
+
+.auth-footer {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+.auth-footer a {
+
+    margin-left: 5px;
+
+    color: #EF6078;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.auth-footer a:hover {
+
+    color: #C689AA;
+
+    text-decoration: underline;
+}
+
+
+
+/* 小屏幕(작은 화면) */
+
+@media (max-width: 500px) {
+
+    .auth-container {
+
+        padding: 20px;
+
+    }
+
+
+    .auth-card {
+
+        width: 100%;
+
+        padding: 38px 25px;
+
+        border-radius: 23px;
+
+    }
+
+
+    .auth-logo {
+
+        font-size: 30px;
+
+    }
+
+}

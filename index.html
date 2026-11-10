@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Timemate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+    <!-- 左侧菜单（왼쪽 메뉴） -->
+    <aside class="sidebar">
+        <div class="logo">
+            Timemate
+        </div>
+       
+<nav class="menu">
+
+    <a href="index.html" class="menu-item active">
+        <span class="menu-icon">⌂</span>
+        <span>대시보드</span>
+    </a>
+
+    <a href="index.html" class="menu-item">
+        <span class="menu-icon">▣</span>
+        <span>일정 관리</span>
+    </a>
+
+    <a href="focus.html" class="menu-item">
+        <span class="menu-icon">✓</span>
+        <span>집중 관리</span>
+    </a>
+
+    <a href="statistics.html" class="menu-item">
+        <span class="menu-icon">▥</span>
+        <span>통계</span>
+    </a>
+
+    <a href="#" class="menu-item">
+        <span class="menu-icon">⚙</span>
+        <span>설정</span>
+    </a>
+
+</nav>
+
+    </aside>
+
+    <!--主界面（메인 화면） -->
+
+    <main class="main">
+
+        <!-- 상단 -->
+        <header class="top-header">
+            <div class="title-area">
+                <h1>
+                    개인 일정 관리
+                </h1>
+                <p id="welcomeMessage">
+                    Hi!
+                </p>
+            </div>
+
+            <div class="user-area">
+                <div class="user-avatar">
+                    J
+                </div>
+                <button id="logoutButton">
+                    로그아웃
+                </button>
+            </div>
+        </header>
+
+        <!-- 今日摘要（오늘의 요약） -->
+
+        <section class="summary-section">
+
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    오늘의 일정
+                </span>
+
+                <strong id="todayScheduleCount">
+                    0
+                </strong>
+
+                <span class="summary-small">
+                    개
+                </span>
+
+            </div>
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    오늘의 할 일
+                </span>
+
+                <strong id="todayTodoCount">
+                    0
+                </strong>
+
+                <span class="summary-small">
+                    개
+                </span>
+
+            </div>
+            <div class="summary-card">
+
+                <span class="summary-label">
+                    집중 시간
+                </span>
+
+                <strong id="todayFocusTime">
+                    00:00
+                </strong>
+
+                <span class="summary-small">
+                    오늘
+                </span>
+
+            </div>
+
+        </section>
+
+        
+<!-- 월간 캘린더 -->
+<section class="calendar-card">
+    <div class="section-header calendar-header">
+        <div>
+            <p class="section-label">CALENDAR</p>
+            <h2>월간 일정 캘린더</h2>
+        </div>
+
+        <div class="calendar-navigation">
+            <button type="button" id="prevMonth">‹</button>
+            <strong id="calendarMonth"></strong>
+            <button type="button" id="nextMonth">›</button>
+        </div>
+    </div>
+
+    <div class="calendar-weekdays">
+        <span>일</span>
+        <span>월</span>
+        <span>화</span>
+        <span>수</span>
+        <span>목</span>
+        <span>금</span>
+        <span>토</span>
+    </div>
+
+    <div id="calendarDays" class="calendar-days"></div>
+
+    <div class="calendar-agenda">
+        <h3 id="selectedDateTitle">선택한 날짜의 일정</h3>
+        <ul id="calendarAgendaList"></ul>
+    </div>
+</section>
+
+<!-- 기존 일정 관리 -->
+<section class="schedule-card">
+
+        <!--  日程管理（일정 관리） -->
+            <div class="section-header">
+                <div>
+                    <p class="section-label">
+                        SCHEDULE
+                    </p>
+                    <h2>
+                        일정 관리
+                    </h2>
+                </div>
+            </div>
+            <!--  日程输入（일정 입력） -->
+            <div class="schedule-input">
+                <input
+                    type="date"
+                    id="date"
+                >
+                <input
+                    type="text"
+                    id="schedule"
+                    placeholder="새로운 일정을 입력하세요"
+                >
+                <button
+                    onclick="addSchedule()"
+                    class="add-button"
+                >
+                    추가
+                </button>
+            </div>
+            <!--  日程列表（일정 목록） -->
+            <div class="schedule-content">
+                <ul id="scheduleList">
+                </ul>
+            </div>
+        <!-- 未来功能（앞으로 추가될 기능） -->
+        <section class="future-section">
+            <a href="focus.html" class="future-card">
+    <div class="future-icon">
+        ✓
+    </div>
+
+    <div>
+        <h3>
+            To-Do
+        </h3>
+
+        <p>
+            지금 해야 할 일을 관리해보세요.
+        </p>
+    </div>
+</a>
+            <a href="focus.html" class="future-card">
+
+    <div class="future-icon">
+        ◷
+    </div>
+
+    <div>
+
+        <h3>
+            집중 관리
+        </h3>
+
+        <p>
+            지금 할 일과 집중 시간을 관리해보세요.
+        </p>
+
+    </div>
+
+</a>
+            <div class="future-card">
+
+                <div class="future-icon">
+                    ▥
+                </div>
+
+                <div>
+
+                    <h3>
+                        통계
+                    </h3>
+
+                    <p>
+                        나의 활동을 확인해보세요.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

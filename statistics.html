@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timemate - 통계</title>
+    <link rel="stylesheet" href="statistics.css">
+    <script src="statistics.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="logo">Timemate</div>
+
+<nav class="menu">
+    <a href="index.html" class="menu-item">
+        <span class="menu-icon">⌂</span>
+        <span>대시보드</span>
+    </a>
+
+    <a href="index.html" class="menu-item">
+        <span class="menu-icon">▣</span>
+        <span>일정 관리</span>
+    </a>
+
+    <a href="focus.html" class="menu-item">
+        <span class="menu-icon">✓</span>
+        <span>집중 관리</span>
+    </a>
+
+    <a href="statistics.html" class="menu-item active">
+        <span class="menu-icon">▥</span>
+        <span>통계</span>
+    </a>
+</nav>
+            <button id="logoutButton" class="logout-button">
+                로그아웃
+            </button>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">TIMEMATE REPORT</p>
+                    <h1>통계</h1>
+                    <p class="subtitle">
+                        나의 일정과 집중 시간을 확인하세요.
+                    </p>
+                </div>
+                <div class="user-label" id="userName">사용자</div>
+            </header>
+
+            <section class="summary-grid">
+                <article class="summary-card">
+                    <div class="card-icon pink">▦</div>
+                    <p>전체 일정</p>
+                    <h2><span id="totalSchedules">0</span><small>개</small></h2>
+                    <span class="card-note">등록된 일정</span>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon purple">✓</div>
+                    <p>전체 할 일</p>
+                    <h2><span id="totalTodos">0</span><small>개</small></h2>
+                    <span class="card-note">등록된 To-Do</span>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon green">✓</div>
+                    <p>완료한 할 일</p>
+                    <h2><span id="completedTodos">0</span><small>개</small></h2>
+                    <span class="card-note">완료된 To-Do</span>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-icon orange">◷</div>
+                    <p>총 집중 시간</p>
+                    <h2 id="totalFocusTime">00:00</h2>
+                    <span class="card-note">누적 집중 시간</span>
+                </article>
+            </section>
+
+            <section class="content-grid">
+                <article class="panel focus-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>최근 7일 집중 시간</h2>
+                            <p>하루별 집중 기록</p>
+                        </div>
+                        <span class="panel-tag">WEEKLY</span>
+                    </div>
+
+                    <div id="weeklyChart" class="weekly-chart"></div>
+                    <p id="chartMessage" class="chart-message">
+                        집중 기록을 확인하고 있습니다.
+                    </p>
+                </article>
+
+                <article class="panel completion-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>할 일 완료율</h2>
+                            <p>전체 To-Do 기준</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-area">
+                        <div class="progress-ring" id="progressRing">
+                            <div class="progress-inner">
+                                <strong id="completionRate">0%</strong>
+                                <span>완료율</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legend">
+                        <div>
+                            <span class="legend-dot completed-dot"></span>
+                            완료한 할 일
+                            <strong id="completedLegend">0</strong>
+                        </div>
+                        <div>
+                            <span class="legend-dot unfinished-dot"></span>
+                            남은 할 일
+                            <strong id="unfinishedTodos">0</strong>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel schedule-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>일정 현황</h2>
+                        <p>날짜별 등록된 일정</p>
+                    </div>
+                    <a href="index.html" class="text-link">일정 관리 →</a>
+                </div>
+
+                <div class="schedule-stats">
+                    <div>
+                        <span>오늘의 일정</span>
+                        <strong id="todaySchedules">0개</strong>
+                    </div>
+                    <div>
+                        <span>예정된 일정</span>
+                        <strong id="upcomingSchedules">0개</strong>
+                    </div>
+                    <div>
+                        <span>지난 일정</span>
+                        <strong id="pastSchedules">0개</strong>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                Timemate · 나의 시간 관리 기록
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
